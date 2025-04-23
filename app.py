@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 app = Flask(__name__)
 
 # Load data and preprocess it here
-data = pd.read_csv("C:\\Users\\ADMIN\\Desktop\\ds\\recommendation\\gym recommendation.csv")
+data = pd.read_csv("gym recommendation.csv")
 data.drop(columns=['ID'], inplace=True)
 
 # Label Encoding and Normalization
