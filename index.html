@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d573c5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Get Your Recommendations</h1>
+    <form method="POST">
+        <label for="sex">Sex:</label>
+        <select name="sex" id="sex">
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+        </select>
+        <br>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" required>
+        <br>
+
+        <label for="height">Height (cm):</label>
+        <input type="number" name="height" id="height" required>
+        <br>
+
+        <label for="weight">Weight (kg):</label>
+        <input type="number" name="weight" id="weight" required>
+        <br>
+
+        <label for="hypertension">Hypertension:</label>
+        <select name="hypertension" id="hypertension">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br>
+
+        <label for="diabetes">Diabetes:</label>
+        <select name="diabetes" id="diabetes">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        <br>
+
+        <label for="bmi">BMI:</label>
+        <input type="number" step="0.1" name="bmi" id="bmi" required>
+        <br>
+
+        <label for="level">Fitness Level:</label>
+        <input type="number" name="level" id="level" required>
+        <br>
+
+        <label for="fitness_goal">Fitness Goal:</label>
+        <select name="fitness_goal" id="fitness_goal">
+            <option value="1">Weight Loss</option>
+            <option value="0">Weight Gain</option>
+        </select>
+        <br>
+
+        <label for="fitness_type">Fitness Type:</label>
+        <input type="number" name="fitness_type" id="fitness_type" required>
+        <br>
+
+        <button type="submit">Get Recommendation</button>
+    </form>
+
+    {% if recommendations %}
+        <h2>Recommendations:</h2>
+        <ul>
+            {% for rec in recommendations %}
+                <li>
+                    Exercises: {{ rec.Exercises }}, Equipment: {{ rec.Equipment }}, 
+                    Diet: Vegetables: {{ rec.Diet_Vegetables }}; 
+                    Protein Intake: {{ rec.Protein_Intake }}; 
+                    Juice: {{ rec.Juice }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
